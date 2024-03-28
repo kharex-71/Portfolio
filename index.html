@@ -3,88 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>index</title>
     <link rel="stylesheet" href="./style.css" />
 </head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16511786687"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16511786687');
+</script>
 <body>
-    <div class="container">
-        <header>
-            <h1>George kharex Kharaishvili</h1>
-            <p>Tbilisi,Georgia (Open to Remout) <a href="mailto:kharaisvhili50@gmail.com">khariashvili50@gmail.com</a> | +995 593 08 22 55</p>
-            <p><a href="https://www.linkedin.com/in/george-kharaishvili-54756125b/">Linkedin</a> | <a href="https://github.com/kharex-71">GitHub</a></p>
-        </header>
-        <section>
-            <hr>
-            <h2>Work Experience</h2>
-            <hr>
-            <article>
-                <span>
-                  <h3>Uber Eats Mobile App Development</h3>
-                  <p>Javascript | React Native | Node.Js</p>
-                </span>
-                <ul>
-                    <li>Led development of Uber Eats mobile app using React Native, JavaScript, and styled-components for optimal user experience.</li>
-                    <li>Integrated third-party services like Google Maps API, npm packages for financial calculations, enhancing app functionality.</li>
-                    <li>Collaborated across teams for feature refinement, solution design, and code quality assurance.</li>
-                    <li>Assisted in deployment and provided user support for issue resolution.</li>
-                </ul>
-            </article>
-    
-            <article>
-                <span>
-                <h3>Forbes Mobile Application</h3>
-                <p>Javascript | TypeScript | Nx Console</p>
-                </span>
-                <ul>
-                    <li>Contributed as a Frontend Developer to the development of the Forbes mobile application, leveraging TypeScript and NX Console architecture.</li>
-                    <li>Horizontal Architecture using Artemis Broker to choose which node has less load. We used Spring as the back-end and GWT as the Front. We used JMS (Active MQ) for processing messages.</li>
-                </ul>
-            </article>
-    
-            <article>
-                <span>
-                  <h3>JobsIn Mobile Application</h3>
-                  <p>Javascript | TypeScript | Nx Console</p>
-                </span>
-                <ul>
-                  <li>In Jobsin team, broadened role to encompass front-end, navigation, and screen implementation, enhancing app functionality.</li>
-                </ul>
-            </article>
-        </section>
-        <section>
-            <hr>
-            <h2>Technical Skills and Languages</h2>
-            <hr>
-            <span>
-                <h3>Front End</h3>
-                <p>HTML, CSS, Javascript, Typescript, Swift, React Native, React.Js</p>
-            </span>
-            <span>
-                <h3>Developer Tools</h3>
-                <p>VsCode, Xcode, Android Studio, Figma, Git, GitHub, GitKraken, Expo</p>
-            </span>
-        </section>
-        <section class="education-box">
-            <hr>
-            <h2>Education</h2>
-            <hr>
-            <h4>Digital Institute: Frontend Mobile App Development Course (JavaScript) Nov 2022</h4>
-            <h4>Course includes: JavaScript, HTML, CSS, React, React Native</h4>
-            <h4>European Regional Training University, Information technology management May 2018</h4>
-        </section>
-        <section>
-            <hr>
-            <h2>Certifications</h2>
-            <hr>
-            <p>Mobile Development React Native, Digital June 2023</p>
-        </section>
-    
-        <section>
-            <hr>
-            <h2>Languages</h2>
-            <hr>
-            <p>Georgian (Native), English B2 (Upper Intermediate)</p>
-        </section>
+    <div id="content">
+        <div id="header">
+            <iframe src="components/menu.html"></iframe>
+        </div>
+        <div id="body">
+            <h1>ეს არის მთავარი გვერდი!</h1>
+        </div>
     </div>
+    <style>
+        #content{
+            width: 100%;
+        }
+        #header{
+            width: 960px;
+            margin: 0 auto;
+            background-color: #cccccc;
+        }
+        iframe{
+            width: 100%;
+            height: 50px;
+            border: none;
+        }
+        #body{
+            width: 960px;
+            margin: 25px auto 0 auto;
+        }
+    </style>
 </body>
 </html>

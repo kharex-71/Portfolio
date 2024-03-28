@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <iframe src="components/menu.html"></iframe>
+        </div>
+        <div id="body">
+            <p id="textID">Fill Form Please!</p>
+            <form action="index.html" method="get">
+                <div id="form-left">
+                    <input type="text" name="FirstName" placeholder="Name" required/>
+                    <input type="email" name="LastName" placeholder="Email" required/>
+                    <select name="AgeRange">
+                        <option value="0">Choose Age</option>
+                        <option value="1">15-25</option>
+                        <option value="2">26-36</option>
+                        <option value="3">37-47</option>
+                    </select>
+                </div>
+                <div id="form-right">
+                    <textarea rows="5" cols="30" name="text"></textarea>
+                    <div>
+                        <input type="checkbox" id="textCheck" name="textVal" checked/>
+                        <label for="textCheck">Please Check if you are male</label>
+                    </div>
+                    <input type="submit" value="Enter Submit"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('textID').innerHTML("this is new text")
+    </script>
+    <style>
+        #content{
+            width: 100%;
+        }
+        #header{
+            width: 960px;
+            margin: 0 auto;
+            background-color: #cccccc;
+        }
+        iframe{
+            width: 100%;
+            height: 50px;
+            border: none;
+        }
+        #body{
+            width: 960px;
+            margin: 150px auto 0 auto;
+        }
+        #body form{
+            display: flex;
+            justify-content: space-around;
+        }
+        #form-left input, #form-left select, #form-right textarea{
+            display: block;
+            width: 250px;
+            height: 40px;
+            border: 1px #cccccc solid;
+            border-radius: 8px;
+            margin-top: 25px;
+            padding-left: 15px;
+        }
+        #form-right textarea{
+            height: 120px !important;
+            resize: none;
+            padding-top: 15px;
+        }
+        #form-right div{
+            font-family: sans-serif;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #form-right input:last-child{
+            width: 150px;
+            height: 40px;
+            outline: none;
+            border: none;
+            background-color: yellow;
+            color: #000;
+            font-size: 16px;
+            display: block;
+            border-radius: 8px;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

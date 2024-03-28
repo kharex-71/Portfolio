@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cv</title>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <iframe src="components/menu.html"></iframe>
+        </div>
+        <div id="body">
+            <div id="cv-left">
+                <img src="img/myimg.png" id="profile-img" alt="user"/>
+                <h1>George Kharaishvili</h1>
+                <h2>ჩემს შესახებ</h2>
+                <p>
+                    Striong and results-oriented Front-end React Developer,
+                    dedicated to advancing expertise and delivering exceptional
+                    results in React development.
+                </p>
+                <h2>კონტაქტი</h2>
+                <p>+995 593 088 22 55</p>
+                <p>kharaishvili50@gmail.com</p>
+                <div id="social">
+                    <h2>სოციალური ქსელი</h2>
+                    <a href="www.linkedin.com/in/george-kharaishvili-54756125b">
+                        <img src="img/social-icon/linkedin_icon.png" alt="linkedin"/>
+                    </a>
+                    <a href="https://github.com/kharex-71">
+                        <img src="img/social-icon/github_icon.png" alt="facebook"/>
+                    </a>
+                    <a href="https://www.youtube.com/">
+                        <img src="img/social-icon/youtube_icon.png" alt="youtube"/>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <img src="img/social-icon/instagram_icon.png" alt="instagram"/>
+                    </a>
+                </div>
+            </div>
+            <div id="cv-right">
+                <div class="title">განათლება</div>
+                <div class="box">
+                    <div>
+                        <b>2002-2014</b>
+                    </div>
+                    <div>
+                        <b>რუსთავის #10 საჯარო სკოლა</b>
+                    </div>
+                </div>
+                <div class="box">
+                    <div>
+                        <b>2014-2016</b>
+                    </div>
+                    <div>
+                        <b>პროფესიული სასწავლებელი - ლამპარი</b>
+                        <span>კომპიუტერული მეცნიერებები - შესავალი</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <div>
+                        <b>2016-2020</b>
+                    </div>
+                    <div>
+                        <b>სუხიშვილის სასწავლო უნივერსიტეტი</b>
+                        <span>ინფორმაციული ტექნოლოგიები - ბაკალავრი</span>
+                    </div>
+                </div>
+                <div class="title">სამუშაო გამოცდილება</div>
+                <div class="box">
+                    <div>
+                        <b>2014-2017</b>
+                    </div>
+                    <div>
+                        <b>facebook</b>
+                        <span> junior mobile developer</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <div>
+                        <b>2017-2020</b>
+                    </div>
+                    <div>
+                        <b>George</b>
+                        <span>middle mobile developer</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <div>
+                        <b>2020-2023</b>
+                    </div>
+                    <div>
+                        <b>George</b>
+                        <span>skilled mobile developer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #content{
+            width: 100%;
+        }
+        #header{
+            width: 960px;
+            margin: 0 auto;
+            background-color: #cccccc;
+        }
+        iframe{
+            width: 100%;
+            height: 50px;
+            border: none;
+        }
+        #body{
+            width: 960px;
+            margin: 25px auto 0 auto;
+            display: flex;
+            justify-content: flex-start;
+        }
+        #cv-left{
+            width: 250px;
+            background-color: #ccc;
+            padding: 10px;
+        }
+        #profile-img{
+            width: 250px;
+        }
+        #social a{
+            display: inline-block;
+        }
+        #social img{
+            width: 36px;
+        }
+        #cv-right{
+            width: calc(960px - 270px);
+        }
+        .title{
+            font-size: 18px;
+            font-weight: 600;
+            margin: 10px;
+        }
+        .box{
+            display: flex;
+            justify-content: flex-start;
+            margin: 10px;
+        }
+        .box span{
+            display: inline-block;
+        }
+        .box div:first-child{
+            width: 100px;
+        }
+        .box div:last-child{
+            text-align: left;
+            margin-left: 15px;
+        }
+    </style>
+</body>
+</html>

@@ -6,23 +6,83 @@
     <title>index</title>
     <link rel="stylesheet" href="./style.css" />
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16511786687"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-16511786687');
-</script>
 <body>
     <div id="content">
         <div id="header">
             <iframe src="components/menu.html"></iframe>
         </div>
         <div id="body">
-            <h1>ეს არის მთავარი გვერდი!</h1>
+            <form>
+                <div class="main-left-div">
+                    <input type="text" name="firstName" id="firstName" placeholder="Enter First Name" />
+                    <input type="text" name="lastName" id="lasName" placeholder="Enter Last Name" />
+                    <input type="text" name="age" id="age" placeholder="Enter Your Age" />
+
+                    <select name="gender" id="gender">
+                        <option value="">Choose Gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="result"></p>
+                    <p id="bmiCategory"></p>
+                </div>
+                <div class="main-right-div">
+                    <input type="text" name="height" id="height" placeholder="enter your height"/>
+                    <input type="text" name="weight" id="weight" placeholder="enter current weight"/>
+                    <input type="button" value="button" id="button" onclick="calculate()"/>
+                </div>
+            </form>
         </div>
     </div>
+    <script>
+        function calculate() {
+            let age = parseInt(document.getElementById("age").value)
+            let gender = document.getElementById("gender").value
+            let height = parseFloat(document.getElementById("height").value)
+            let weight = parseFloat(document.getElementById("weight").value)
+            let currentYear = new Date().getFullYear()
+            let person = currentYear - age
+            
+            if(isNaN(age) || isNaN(height) || isNaN(weight) || age <= 0 || height <= 0 || weight <= 0){
+                document.getElementById("result").textContent = "Please fill out all fields";
+                document.getElementById("bmiCategory").textContent = "";
+            }else {
+                let bmi = calculateBMIValue(height,weight);
+                document.getElementById("result").textContent = "user BMI is: " + bmi.toFixed(2)
+                let category = getBMIState(bmi);
+                document.getElementById("bmiCategory").textContent = "BMI Category: " + category;
+            }
+
+            
+            
+        }
+        
+        function calculateBMIValue(height,weight){
+            let heightM = height / 100;
+            return weight / (heightM * heightM);
+        }
+
+        function getBMIState(bmi) {
+            if (bmi < 16.0) {
+               return "Severely Underweight";
+            } else if (bmi >= 16.0 && bmi <= 18.4) {
+               return "Underweight";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+               return "Normal";
+            } else if (bmi >= 25.0 && bmi <= 29.9) {
+               return "Overweight";
+            } else if (bmi >= 30.0 && bmi <= 34.9) {
+               return "Moderately Obese";
+            } else if (bmi >= 35.0 && bmi <= 39.9) {
+               return "Severely Obese";
+            } else {
+               return "Morbidly Obese";
+            }
+        }
+
+        </script>
     <style>
         #content{
             width: 100%;
@@ -40,6 +100,18 @@
         #body{
             width: 960px;
             margin: 25px auto 0 auto;
+        }
+        #body form{
+            display: flex;
+            justify-content: space-between;
+        }
+        .main-left-div input, .main-left-div select, .main-right-div input{
+            width: 250px;
+            height: 40px;
+            outline: none;
+            display: block;
+            margin-top: 20px;
+            padding-left: 10px;
         }
     </style>
 </body>

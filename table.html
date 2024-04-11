@@ -12,7 +12,7 @@
             <iframe src="components/menu.html"></iframe>
         </div>
         <div id="body">
-            <table border="1">
+            <!-- <table border="1">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -37,7 +37,7 @@
                         <td colspan="4" id="sum">2018</td>
                     </tr>
                 </tfoot>
-            </table>
+            </table> -->
             <!-- <table>
                 <tr>
                     <th>Course</th>
@@ -64,8 +64,130 @@
                     <td>HTML, CSS, JavaScript, Node.js, Express.js</td>
                 </tr>
             </table> -->
+            <div id="country-currency">
+                <div class="cycle-div">
+                    <p>This finds countries by currency</p>
+                   <form>
+                    <input type="text" name="cur" id="cur" maxlength="3" oninput="this.value = this.value.toUpperCase()" placeholder="Enter currency"/>
+                    <input type="button" value="Find" onclick="findCountry()"/>
+                   </form>
+                   <div id="innerText"></div>
+                </div>
+                <div class="cycle-div">
+                    <p>This is find first country by currency</p>
+                   <form>
+                    <input type="text" name="curr" id="curr" maxlength="3" placeholder="Enter currency"/>
+                    <input type="checkbox" name="tick" id="tick"/>
+                    <input type="button" value="Find" onclick="findFirstCountry()"/>
+                   </form>
+                   <div id="innerText2"></div>
+                </div>
+                <div class="cycle-div">
+                    <p>This is find countries</p>
+                   <form>
+                    <input type="text" name="country" id="country" placeholder="Enter currency"/>
+                    <input type="button" value="done" onclick="findcountries()"/>
+                   </form>
+                   <div id="innerText3"></div>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        function findCountry() {
+            fetch('https://countriesnow.space/api/v0.1/countries/currency')
+               .then(response => response.json())
+               .then(json => {
+
+                   let i = 0 
+                   let countries = []
+                   let currency = document.getElementById("cur").value
+                   document.getElementById("innerText").innerHTML = ""
+
+                while (i < json.data.length){
+                    if (currency == json.data[i].currency){                    
+                        countries.push(json.data[i])
+                        document.getElementById("innerText").innerHTML += "<p>" + json.data[i].name + "</p>"
+                    }
+                    i++
+                }
+                document.getElementById("innerText").innerHTML += "<p>This currency use" + " " + countries.length + "</p>"
+
+            })
+            .catch(error => console.error(error))
+        }
+
+        function findFirstCountry() {
+            fetch('https://countriesnow.space/api/v0.1/countries/currency')
+            .then(response => response.json())
+            .then(json => {
+                
+                let i = 0 
+                let currency = document.getElementById("curr").value
+                let tick = document.getElementById("tick").checked
+                document.getElementById("innerText2").innerHTML = ""
+
+                console.log(json)
+                
+                while (i < json.data.length){
+                    if((json.data[i].currency == currency) && !tick){
+                        document.getElementById("innerText2").innerHTML = "<p>" + json.data[i].name + "</p>"
+                        break
+                    }
+                    if(tick && (json.data[i].currency != currency)){
+                        document.getElementById("innerText2").innerHTML += "<p>" + json.data[i].name + "<p/>"
+                    }
+                    i++
+                }
+
+            })
+            .catch(error => console.error(error))
+        }
+    
+        function findcountries(){
+            fetch('https://countriesnow.space/api/v0.1/countries/currency')
+               .then(response => response.json())
+               .then(json => {
+                let i = 0 
+                let country = document.getElementById("country").value.trim()
+                let countryNameLength = country.length
+                console.log("Length of country name: ", countryNameLength)
+
+                let givenCountryCurrency = ""
+                let similarCountries = []
+
+                while(i < json.data.length && givenCountryCurrency === ""){
+                    if(json.data[i].name === country){
+                        givenCountryCurrency = json.data[i].currency
+                        document.getElementById("innerText3").innerHTML += "<p>" + givenCountryCurrency + "<p/>"
+                        break
+                    } 
+                    i++
+                }
+
+                // if(givenCountryCurrency !== ""){
+                //     document.getElementById("innerText3").innerHTML = "<b>" + country + "<b/>" + "<b>" + givenCountryCurrency + "<b/>"
+                //         //ქვეყნები მსგავსი ვალუტით
+                //     while(i < json.data.length){
+                //         if(json.data[i].currency === givenCountryCurrency && json.data[i].name !== country){
+                //             similarCountries.push(json.data[i].name)
+                //             // document.getElementById("innerText3").innerHTML = "<p>" + similarCountries.length + "<p/>"
+                //         }
+                //         i++
+                //     }
+                // }
+
+            })
+            .catch(error => console.error(error))
+        }
+
+        // function countLetter(text){
+        //     let data = text.trim().length
+        //     return data
+        // }
+        
+    
+    </script>
     <style>
         #content{
             width: 100%;
@@ -83,6 +205,47 @@
         #body{
             width: 960px;
             margin: 25px auto 0 auto;
+        }
+        #country-currency{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .cycle-div {
+            margin: 0 10px;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 7px;
+        }
+        .cycle-div p {
+            margin: 0 0 10px;
+            font-weight: bold;
+        }
+        form{
+            display: flex;
+            align-items: center;
+        }
+        input[type="text"], input[type="button"], input[type="checkbox"] {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+        input[type="text"]:focus, input[type="button"]:focus, input[type="checkbox"]:focus {
+            outline: none;
+        }
+        input[type="button"]{
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 18px;
+        }
+        input[type="button"]:hover{
+            background-color: #0056b3;
         }
         table{
             width: 100%;
